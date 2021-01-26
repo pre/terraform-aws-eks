@@ -31,11 +31,6 @@ output "cluster_security_group_id" {
   value       = local.cluster_security_group_id
 }
 
-output "config_map_aws_auth" {
-  description = "A kubernetes configuration to authenticate to this EKS cluster."
-  value       = kubernetes_config_map.aws_auth.*
-}
-
 output "cluster_iam_role_name" {
   description = "IAM role name of the EKS cluster."
   value       = local.cluster_iam_role_name
@@ -186,10 +181,6 @@ output "fargate_iam_role_arn" {
   value       = module.fargate.iam_role_arn
 }
 
-output "node_groups" {
-  description = "Outputs from EKS node groups. Map of maps, keyed by var.node_groups keys"
-  value       = module.node_groups.node_groups
-}
 
 output "security_group_rule_cluster_https_worker_ingress" {
   description = "Security group rule responsible for allowing pods to communicate with the EKS cluster API."
