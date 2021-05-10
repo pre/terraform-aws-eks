@@ -50,3 +50,8 @@ output "oidc_provider_arn" {
   description = "The ARN of the OIDC Provider if `enable_irsa = true`."
   value       = var.enable_irsa ? concat(aws_iam_openid_connect_provider.oidc_provider[*].arn, [""])[0] : null
 }
+
+output "subnets" {
+  description = "Subnets of the cluster"
+  value = var.subnets
+}
